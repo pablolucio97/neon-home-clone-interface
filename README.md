@@ -1,7 +1,7 @@
 
 ## Neon Clone Interface
 
-### Clone da interface da Home do banco Neon. Repositório criado para práticas de responsividade. Obs: Não coonsiderei o layou original em sua totalidade, fiz algumas mudanças para entregar uma melhor UX.
+### Clone da interface da Home do banco Neon. Repositório criado para práticas de responsividade. Obs: Não considerei o layou original em sua totalidade, fiz algumas mudanças para entregar uma melhor UX.
 
 <p align="center">
   <img alt="APM" src="https://img.shields.io/apm/l/vim-mode"> <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/Django">
