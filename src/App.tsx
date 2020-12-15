@@ -18,17 +18,21 @@ function App() {
 
 
   const [showMenu, setShowMenu] = useState(0)
+  const [showDividerBottom, setShowDividerBottom] = useState(0)
 
-//HANDLE MENU BUTTON
+//WATCH WINDOW WIDTH
  useEffect(() => {
   const watchWidth = setInterval(() => {
     var getWidth = window.innerWidth
     setShowMenu(getWidth)
+    setShowDividerBottom(getWidth)
   },100)
   return () => {
     clearInterval(watchWidth)
   }
  },[])
+
+
 
 
   return (
@@ -101,40 +105,61 @@ function App() {
           <img src={mobile} alt="neon-mobile" width={400} height={800}/>
         </div>
         <footer>
-          <div className="social-icons">
-             <button className='facebook'><SiFacebook size={20} color='#fff'/></button>
-              <button className='linkedin'><SiLinkedin size={20} color='#fff'/></button>
-              <button className='twitter'><SiTwitter size={20} color='#fff'/></button>
-              <button className='instagram'><SiInstagram size={20} color='#fff'/></button>
-              <button className='youtube'><SiYoutube size={20} color='#fff'/></button>
-          </div>
-          <div className="internal-links">
-            <a href="#">termos de uso</a>
-            <a href="#">política de privacidade</a>
-            <a href="#">carreira</a>
-            <a href="#">ouvidoria</a>
-          </div>
-          <div className="contact">
-            <div className="email1">
-              <span>Atendimento: </span>
-              <p>oi@neon.com.br (24 horas)</p>
+            <div className="footer-container">
+                <div className="social-icons">
+                <button className='facebook'><SiFacebook size={20} color='#fff'/></button>
+                  <button className='linkedin'><SiLinkedin size={20} color='#fff'/></button>
+                  <button className='twitter'><SiTwitter size={20} color='#fff'/></button>
+                  <button className='instagram'><SiInstagram size={20} color='#fff'/></button>
+                  <button className='youtube'><SiYoutube size={20} color='#fff'/></button>
+              </div>
+              <div className="internal-links">
+                <a href="#">termos de uso</a>
+                <a href="#">política de privacidade</a>
+                <a href="#">carreira</a>
+                <a href="#">ouvidoria</a>
+              </div>
+              <div className="contact">
+                <div className="email1">
+                  <span>Atendimento: </span>
+                  <p>oi@neon.com.br (24 horas)</p>
+                </div>
+                <div className="email2">
+                  <span>Imprensa: </span>
+                  <p> imprensa@neon.com.br</p>
+                </div>
+              </div>
+                {showDividerBottom < 860? 
+                
+                <div className="bottom-footer">
+                <div className="left-content divider">
+                  <p>Neon Pagamentos S.A. – CNPJ 20.855.875/0001-82 R. Hungria, 1400 – Jardim Europa, São Paulo – SP, 01455-000 Neon Pagamentos® 2018</p>
+                  <br/>
+                  <p>Oi! Leu até aqui? Você se preocupa com os mínimos detalhes, mesmo. A gente também. Por isso o time Neon está sempre trabalhando para fazer a conta digital perfeita para você ; )</p>
+                </div>
+                <div className="right-content">
+                  <img src={abcd} alt="abcd assoication"/>
+                  <p>Esta empresa é membro da ABCD e, como tal, atende às Orientações de Conduta constantes em seu Código de Ética e Autorregulação</p>
+                </div>
+                </div>  
+                
+                : 
+
+                <div className="bottom-footer ">
+                <div className="left-content">
+                  <p>Neon Pagamentos S.A. – CNPJ 20.855.875/0001-82 R. Hungria, 1400 – Jardim Europa, São Paulo – SP, 01455-000 Neon Pagamentos® 2018</p>
+                  <br/>
+                  <p>Oi! Leu até aqui? Você se preocupa com os mínimos detalhes, mesmo. A gente também. Por isso o time Neon está sempre trabalhando para fazer a conta digital perfeita para você ; )</p>
+                </div>
+                <div className="right-content">
+                  <img src={abcd} alt="abcd assoication"/>
+                  <p>Esta empresa é membro da ABCD e, como tal, atende às Orientações de Conduta constantes em seu Código de Ética e Autorregulação</p>
+                </div>
+                </div>   
+                }
+              
             </div>
-            <div className="email2">
-              <span>Imprensa: </span>
-              <p> imprensa@neon.com.br</p>
-            </div>
-          </div>
-          <div className="bottom-footer">
-            <div className="left-content">
-              <p>Neon Pagamentos S.A. – CNPJ 20.855.875/0001-82 R. Hungria, 1400 – Jardim Europa, São Paulo – SP, 01455-000 Neon Pagamentos® 2018</p>
-              <p>Oi! Leu até aqui? Você se preocupa com os mínimos detalhes, mesmo. A gente também. Por isso o time Neon está sempre trabalhando para fazer a conta digital perfeita para você ; )</p>
-            </div>
-            <div className="right-content">
-              <img src={abcd} alt="abcd assoication"/>
-              <p>Esta empresa é membro da ABCD e, como tal, atende às Orientações de Conduta constantes em seu Código de Ética e Autorregulação</p>
-            </div>
-          </div>
-        </footer>
+        </footer> 
     </div>
   );
 }
