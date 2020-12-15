@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {SiFacebook, SiInstagram, SiLinkedin, SiTwitter, SiYoutube} from 'react-icons/si'
+import {MdMenu} from 'react-icons/md'
 
 import './styles.css'
 import banner from './assets/img/banner.png'
@@ -10,27 +11,46 @@ import mobile from './assets/img/mobile.png'
 import appstore from './assets/img/appstore.svg'
 import googleplay from './assets/img/googleplay.svg'
 import abcd from './assets/img/abcd.png'
+import logo from './assets/img/logo.png'
 
 
 function App() {
 
 
+  const [showMenu, setShowMenu] = useState(0)
+
+//HANDLE MENU BUTTON
+ useEffect(() => {
+  const watchWidth = setInterval(() => {
+    var getWidth = window.innerWidth
+    setShowMenu(getWidth)
+  },100)
+  return () => {
+    clearInterval(watchWidth)
+  }
+ },[])
+
 
   return (
     <div className='main-container'>
       <header>
-        <div className="loogo">
-          <h1>Neon</h1>
+        <div className="logo">
+          <img src={logo} alt="neon-logo"/>
         </div>
+      {
+        showMenu > 1260?
         <div className="nav">
-          <a href="#">conta</a>
-          <a href="#">pejota</a>
-          <a href="#">perguntas</a>
-          <a href="#">tarifas</a>
-          <a href="#">#focanodinheiro</a>
-          <a href="#">conheça a neon</a>
-          <button id='menu-btn'>Abra sua conta</button>
-        </div>
+        <a href="#">conta</a>
+        <a href="#">pejota</a>
+        <a href="#">perguntas</a>
+        <a href="#">tarifas</a>
+        <a href="#">#focanodinheiro</a>
+        <a href="#">conheça a neon</a>
+        <button id='menu-btn'>Abra sua conta</button>
+      </div>
+      : 
+      <button style={{width: 40}}><MdMenu size={24}/></button>
+      }
       </header>
       <div className="container-wrapper">
         <div className="sub-wrapper">
@@ -54,12 +74,12 @@ function App() {
               <div className="card1">
                 <img src={card1} alt="neon-imgs"/>
                 <h3>Crédito</h3>
-                <p>Sua conta digital tem cartão de crédito sem anuidade nem complicação</p>
+                <p>Sua conta digital tem cartão de crédito sem anuidade nem complicação.</p>
               </div>
               <div className="card2">
                 <img src={card2} alt="neon-imgs"/>
                   <h3>Sem taxas</h3>
-                  <p>Você não paga nada por transferências, boletos de depósito e outros serviços no app</p>
+                  <p>Você não paga nada por transferências, boletos de depósito e outros serviços no app.</p>
               </div>
               <div className="card3">
                 <img src={card3} alt="neon-imgs"/>
